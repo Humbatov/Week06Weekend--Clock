@@ -1,0 +1,103 @@
+.circle{
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: rgba(193, 191, 191, 0.31);
+  border: 5px solid #b9b2b2;
+  position: relative;
+  margin: 50px auto;
+
+}
+
+.smallCircle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 245px;
+  left: 245px;
+  z-index: 4;
+}
+.secondArrow{
+  width: 1px;
+  height: 220px;
+  background-color: red;
+  display: inline-block;
+  position: absolute;
+  left: calc(50% - 0.5px);
+  top: 30px;
+
+  transform-origin:bottom center;
+  z-index: 3;
+}
+
+.minuteArrow{
+  width: 3px;
+  height: 240px;
+  background-color: black;
+  display: inline-block;
+  position: absolute;
+  left: calc(50% - 1.5px);
+  top: 10px;
+
+  transform-origin:bottom center;
+  z-index: 2;
+}
+
+.hourArrow{
+  width: 3px;
+  height: 160px;
+  background-color: black;
+  display: inline-block;
+  position: absolute;
+  left: calc(50% - 1.5px);
+  top: 90px;
+  transform-origin:bottom center;
+  z-index: 1;
+}
+
+.marks{
+  div{
+    width: 4px;
+    height: 2px;
+    background-color: #CACACA;
+    position: absolute;
+    left: calc(50% - 2px) ;
+    top: calc(50% - 1px);
+    @for $i from 1 through 60 {
+      &:nth-child(#{$i}) {
+      @if $i % 15 == 0 {
+        width: 36px;
+        left: calc(50% - 18px) ;
+        transform: rotate(6deg * $i) translate(231px);
+      }@else if $i % 5 == 0 {
+        width: 18px;
+        left: calc(50% - 9px) ;
+        transform: rotate(6deg * $i) translate(240px);
+      }@else{
+        transform: rotate(6deg * $i) translate(246px);
+      }
+    }
+    }
+  }
+}
+
+.digits{
+  div{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #151313;
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    top: 234px;
+    left:calc(50% - 15px);;
+    @for $i from 1 through 12{
+      &:nth-child(#{$i}){
+        transform: rotate(30deg * $i) translate(195px) rotate(-30deg * $i);;
+      }
+    }
+  }
+}
